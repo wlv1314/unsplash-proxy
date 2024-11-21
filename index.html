@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+   <html>
+   <head>
+     <title>Unsplash Proxy</title>
+   </head>
+   <body>
+     <script>
+       const unsplashApiUrl = 'https://api.unsplash.com/photos';
+       const clientId = 'e6Yf3LdpLtWUc01k2urVbjsoBwsFy1O6dSiaJZyVT1o';
+
+       fetch(unsplashApiUrl, {
+         headers: {
+           Authorization: `Client-ID ${clientId}`
+         }
+       })
+       .then(response => response.json())
+       .then(data => {
+         document.write(JSON.stringify(data));
+       })
+       .catch(error => {
+         console.error('Error:', error);
+         document.write(JSON.stringify({ error: 'Failed to fetch image' }));
+       });
+     </script>
+   </body>
+   </html>
